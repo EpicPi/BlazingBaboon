@@ -3,7 +3,6 @@
     var video = document.querySelector('video')
       , canvas;
     var arrays = [];
-    var count = 0;
     /**
      *  generates a still frame image from the stream in the <video>
      *  appends the image to the <body>
@@ -20,11 +19,12 @@
 
       context = canvas.getContext('2d');
       context.drawImage(video, 0, 0, width, height);
-      arrays.push(img);
       img.src = canvas.toDataURL('image/png');
+      arrays.push(img);
       document.body.appendChild(img);
-      count += 1;
-      console.log(arrays)
+      for (var count = 0; count<arrays.length; count += 1){
+          console.log(arrays[count]);
+      }
     }
 
     // use MediaDevices API
